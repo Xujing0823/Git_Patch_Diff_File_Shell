@@ -32,6 +32,7 @@ mkdir -p ${TARTGET_PATCH_DIR}/old &&
 git branch -D for_patch_tar_old for_patch_tar_new >/dev/null 2>&1 ; 
 git branch for_patch_tar_old $BASE_COMMIT && 
 git branch for_patch_tar_new $NEW_COMMIT && 
+git checkout for_patch_tar_new  >/dev/null 2>&1 && 
 git diff --name-only for_patch_tar_old for_patch_tar_new | xargs tar caf ${TARTGET_PATCH_DIR}/new/for_patch_tar_new.tar.gz && 
 git checkout for_patch_tar_old  >/dev/null 2>&1 && 
 git diff --name-only for_patch_tar_old for_patch_tar_new | xargs tar caf ${TARTGET_PATCH_DIR}/old/for_patch_tar_old.tar.gz && 
